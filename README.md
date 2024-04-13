@@ -1,2 +1,2 @@
 # Fedora-GLF
-Fedora setup for gaming and content creation
+Fedora Linux setup for gaming and content creation
