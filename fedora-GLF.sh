@@ -262,6 +262,22 @@ exec_log "GameMode :" \
 if [[ $(ps aux | grep gnome-shell | wc -l) > 1 ]];then
 	exec_log "GNOME Tweaks, la gestion des extension de GNOME Shell, du systray, du GameMode et du téléphone portable :" \
 	"sudo dnf install -y gnome-tweaks gnome-extensions-app gnome-shell-extension-appindicator gnome-shell-extension-caffeine gnome-shell-extension-gamemode gnome-shell-extension-gsconnect"
+	# enable extensions system wide
+	if [[ ! -f /etc/dconf/db/local.d/00-extensions ]]; then
+		exec_command "cat <<EOF | sudo tee /etc/dconf/db/local.d/00-extensions
+[org/gnome/shell]
+# List all extensions that you want to have enabled for all users
+enabled-extensions=['gsconnect@andyholmes.github.io', 'appindicatorsupport@rgcjonas.gmail.com','gamemode@christian.kellner.me','caffeine@patapon.info']
+EOF"
+		exec_command "sudo dconf update"
+	else
+		log_msg "File /etc/dconf/db/local.d/00-extensions already exists!"
+	fi
+	# enable extensions for the current user
+	exec_command "gnome-extensions enable gsconnect@andyholmes.github.io"
+	exec_command "gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com"
+	exec_command "gnome-extensions enable gamemode@christian.kellner.me"
+	exec_command "gnome-extensions enable caffeine@patapon.info"
 fi
 
 exec_log "Gestion des droits des flatpaks (Flatseal) :" \
