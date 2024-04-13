@@ -7,7 +7,9 @@
 #
 # DESCRIPTION : Post installation script for Fedora Linux as a gaming/content creator station.
 #
-# BUGS: ---
+# BUGS: 
+# GameMode Gnome Shell Extension is broken on Fedora 39 https://bugzilla.redhat.com/show_bug.cgi?id=2259979
+# gamemode-1.8.1 is available https://bugzilla.redhat.com/show_bug.cgi?id=2253403
 # NOTES: ---
 # CONTRUBUTORS: Chevek
 # CREATED: april 2024
