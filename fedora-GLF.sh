@@ -42,7 +42,7 @@
 # - Add ZLUDA support ( https://github.com/vosen/ZLUDA ), if still relevant...
 
 set -e  # wont works with dnf check-update --refresh ? exit code is 100 if there is updates.
-export VERBOSE=true
+export VERBOSE=false
 # Colors and text formating
 BG_BLUE="$(tput setab 4)"
 BG_BLACK="$(tput setab 0)"
@@ -66,48 +66,46 @@ export LOG_FILE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/logfile_Fedora_GL
 
 # log functions from https://github.com/Gaming-Linux-FR/Architect/blob/main/src/cmd.sh
 function init_log() {
-    touch "${LOG_FILE}"
+    touch "$LOG_FILE"
     #echo -e "Commit hash: $(git rev-parse HEAD)" >>"${LOG_FILE}"
-    echo -e "Log file: ${LOG_FILE}\n" >>"${LOG_FILE}"
+    echo -e "Log file: ${LOG_FILE}\n" >>"$LOG_FILE"
 }
 
 function log() {
     local -r comment="$1"
-
-    echo "[$(date "+%Y-%m-%d %H:%M:%S") TXT] ${comment}" >>"${LOG_FILE}"
+    echo "[$(date "+%Y-%m-%d %H:%M:%S") TXT] $comment" >>"$LOG_FILE"
 }
 
 function log_msg() {
     local -r comment="$1"
-
-    echo "${comment}"
-    log "${comment}"
+    echo "$comment"
+    log "$comment"
 }
 
 function exec_command() {
     local -r command="$1"
-		echo "[$(date "+%Y-%m-%d %H:%M:%S") EXE] ${command}" >>"${LOG_FILE}"
-    if [[ ${VERBOSE} == true ]]; then
-        eval "${command}" 2>&1 | tee -a "${LOG_FILE}"
+		echo "[$(date "+%Y-%m-%d %H:%M:%S") EXE] $command" >>"$LOG_FILE"
+    if [[ $VERBOSE == true ]]; then
+        eval "$command" 2>&1 | tee -a "$LOG_FILE"
     else
-        eval "${command}" >>"${LOG_FILE}" 2>&1
+        eval "$command" >>"$LOG_FILE" 2>&1
     fi
 }
 
 function exec_log() {
     local -r comment="$1"
 		local -r command="$2"
-    log_msg "${comment}"
-    exec_command "${command}"
+    log_msg "$comment"
+    exec_command "$command"
 }
 
 ################### SCRIPT START HERE!
 init_log
 # We need an up to date system !
-# Enforce :
+# Enforcement :
 log_msg "Vérification de la fraicheur du système :"
 dnf check-update --refresh && RC=$? || RC=$? # see line "set -e" of this script... We deal with it right here:
-if [ $RC -eq 0 ]; then
+if [ "$RC" -eq 0 ]; then
 	log_msg  "Le système est à jour."
 else
 	echo ""	
@@ -115,7 +113,7 @@ else
 	exit
 fi
 
-read -n 1 -s -r -p "Press any key to continue"
+read -n 1 -s -r -p "Appuyez sur une touche pour continuer."
 
 #===================================================================================
 # DNF configuration
@@ -126,14 +124,14 @@ log_msg  "* Gestion des paquets"
 log_msg  "*************************"
 # Paramétrage DNF
 log_msg  "Optimisation de DNF :"
-if ! $(grep -Fq "fastestmirror=" /etc/dnf/dnf.conf); then
+if ! grep -Fq "fastestmirror=" /etc/dnf/dnf.conf; then
 	exec_command "echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf"
 fi
-if ! $(grep -Fq "max_parallel_downloads=" /etc/dnf/dnf.conf); then
+if ! grep -Fq "max_parallel_downloads=" /etc/dnf/dnf.conf; then
 	exec_command "echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf"
 fi
 # We need more accurate statistics!
-if ! $(grep -Fq "countme=" /etc/dnf/dnf.conf); then
+if ! grep -Fq "countme=" /etc/dnf/dnf.conf; then
 	exec_command "echo 'countme=true' | sudo tee -a /etc/dnf/dnf.conf"
 fi
 
@@ -190,6 +188,8 @@ if [[ $GPU_TYPE =~ "NVIDIA" ]]; then
 	
 	exec_log "VDPAU/VAAPI support :" \
 	"sudo dnf install -y nvidia-vaapi-driver libva-utils vdpauinfo"
+	# sudo dracut --regenerate-all --force
+	# sudo depmod -a
 	
 fi
 
@@ -261,7 +261,7 @@ log_msg  "*************************"
 exec_log "GameMode :" \
 "sudo dnf install -y gamemode"
 # Is GNOME running?
-if [[ $(ps aux | grep gnome-shell | wc -l) > 1 ]];then
+if [[ $(pgrep -c gnome-shell) -gt 0 ]];then
 	exec_log "GNOME Tweaks, la gestion des extension de GNOME Shell, du systray, du GameMode et du téléphone portable :" \
 	"sudo dnf install -y gnome-tweaks gnome-extensions-app gnome-shell-extension-appindicator gnome-shell-extension-caffeine gnome-shell-extension-gamemode gnome-shell-extension-gsconnect"
 	# enable extensions system wide
