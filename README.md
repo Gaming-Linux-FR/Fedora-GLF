@@ -6,7 +6,7 @@
 ## Script
 Pour démarrer avec le script :
 
-1. Mettre à jour son système avec Logiciel (ou Discover). Un reboot est nécessaire et fait normalement parti du processus de mise à jour.
+1. Mettre à jour son système avec Logiciels (ou Discover). Un reboot est nécessaire et fait normalement parti du processus de mise à jour.
 
 2. Copier-coller ce qui suit dans un terminal :
 ```bash
