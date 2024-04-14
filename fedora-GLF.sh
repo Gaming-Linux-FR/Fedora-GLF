@@ -150,8 +150,10 @@ log_msg  "Mise à jour des firmwares :"
 # MàJ Firmware si supporté
 exec_command "sudo fwupdmgr get-devices" 
 exec_command "sudo fwupdmgr refresh --force" 
-exec_command "sudo fwupdmgr get-updates" 
-exec_command "sudo fwupdmgr update"
+#FIXME!
+sudo fwupdmgr get-updates || RC=$?
+#FIXME!
+sudo fwupdmgr update || RC=$?
 
 #===================================================================================
 # RPM Fusion configuration
@@ -250,7 +252,8 @@ log_msg  "* Compatibilité bureautique"
 log_msg  "*************************"
 log_msg  "Installation des fonts Microsoft :"
 exec_command "sudo dnf install -y curl cabextract xorg-x11-font-utils fontconfig"
-exec_command "sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
+#FIXME!
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm || RC=$?
 
 #===================================================================================
 # Desktop Tools
