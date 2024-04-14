@@ -30,10 +30,10 @@ Pour démarrer avec le script :
 - Installation d'outils et d'extensions pour le [bureau GNOME](https://www.gnome.org/) :
   - GNOME Tweaks pour modifier GNOME,
   - GNOME Extension Application pour gérer les extensions de GNOME,
-  - App Indicator pour le systray,
-  - GSConnect pour l'accès aux téléphones portables,
-  - GameMode pour indiquer son usage - :warning: actuellement cassé-,
-  - Caffeine pour empécher la mise en veille.
+  - Extension App Indicator pour le systray,
+  - Extension GSConnect pour l'accès aux téléphones portables,
+  - Extension GameMode pour indiquer son usage - :warning: actuellement cassé-,
+  - Extension Caffeine pour empécher la mise en veille.
 - Installation de [Flatseal](https://github.com/tchx84/flatseal) pour gérer les droits des flatpaks
 - Installation d'outils de compression (7zip, rar, ace, lha)
 - Installation de polices (Google Roboto, Mozilla Fira, dejavu, liberation, Google Noto Emoji-sans-serif, Adobe Source, Awesome, Google Droid)
