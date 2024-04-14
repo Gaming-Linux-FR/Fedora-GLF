@@ -18,7 +18,7 @@ Pour démarrer avec le script :
 ## Fonctionnalités
 - Optimisation de la vitesse du gestionnaire de paquets [DNF](https://doc.fedora-fr.org/wiki/DNF,_le_gestionnaire_de_paquets_de_Fedora)
 - Installation du dépôt [Flathub](https://flathub.org/fr) si nécessaire afin d'accéder à de nombreux [flatpaks](https://flatpak.org/).
-  - :warning: actuellement cassé, veuillez activer les "dépôts tiers" lors de l'installation ou lors du premier usage de Logiciel.
+  - :warning: actuellement cassé, veuillez activer les "dépôts tiers" lors de l'installation ou lors du premier usage de Logiciels.
 - Mise à jour des [firmwares supportés par Linux](https://fwupd.org/)
 - Installation des dépôts [RPM Fusion](https://rpmfusion.org/) pour ouvrir l'accès à des logiciels propriétaires
 - Autodétection des cartes graphiques NVIDIA récentes (2014+) et installation des pilotes propriétaires avec [CUDA](https://fr.wikipedia.org/wiki/Compute_Unified_Device_Architecture)
