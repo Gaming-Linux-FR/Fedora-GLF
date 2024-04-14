@@ -50,3 +50,5 @@ Pour démarrer avec le script :
 - Installation de [fastfetch](https://github.com/fastfetch-cli/fastfetch) pour obtenir des informations système en ligne de commande
 - Installation d'un bloqueur de pubs et de malwares pour le navigateur Firefox ([uBlock Origin](https://ublockorigin.com/fr))
 - Si le système de fichier [btrfs](https://fr.wikipedia.org/wiki/Btrfs) est utilisé -par défaut sur les installations automatisées de Fedora-, installation de [Btrfs Assistant](https://gitlab.com/btrfs-assistant/btrfs-assistant) pour aider à sa gestion
+### Statistiques
+- Active la participation à l'initiative [countme](https://dnf.readthedocs.io/en/latest/conf_ref.html#countme-label) pour obtenir des statistiques anonymes plus précises d'usage de Fedora
