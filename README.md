@@ -16,7 +16,7 @@ Pour démarrer avec le script :
   && ./fedora-GLF.sh
 ```
 ## Fonctionnalités
-### Gestion des applications :
+### Gestion des applications
 - Optimisation de la vitesse du gestionnaire de paquets [DNF](https://doc.fedora-fr.org/wiki/DNF,_le_gestionnaire_de_paquets_de_Fedora)
 - Installation du dépôt [Flathub](https://flathub.org/fr) si nécessaire afin d'accéder à de nombreux [flatpaks](https://flatpak.org/).
   - :warning: actuellement cassé, veuillez activer les "dépôts tiers" lors de l'installation ou lors du premier usage de Logiciels.
