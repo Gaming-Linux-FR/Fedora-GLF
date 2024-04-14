@@ -67,7 +67,7 @@ export LOG_FILE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/logfile_Fedora_GL
 # log functions from https://github.com/Gaming-Linux-FR/Architect/blob/main/src/cmd.sh
 function init_log() {
     touch "$LOG_FILE"
-    #echo -e "Commit hash: $(git rev-parse HEAD)" >>"${LOG_FILE}"
+    echo -e "Commit hash: $(git rev-parse HEAD)" >>"$LOG_FILE"
     echo -e "Log file: ${LOG_FILE}\n" >>"$LOG_FILE"
 }
 
