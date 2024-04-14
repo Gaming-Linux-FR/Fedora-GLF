@@ -45,3 +45,4 @@ Pour démarrer avec le script :
 - Installation d'outils de compression (7zip, rar, ace, lha)
 - Installation de [fastfetch](https://github.com/fastfetch-cli/fastfetch) pour obtenir des informations système en ligne de commande
 - Installation d'un bloqueur de pubs et de malwares pour le navigateur Firefox ([uBlock Origin](https://ublockorigin.com/fr))
+- Si le système de fichier [btrfs](https://fr.wikipedia.org/wiki/Btrfs) est utilisé -par défaut sur les installations automatisées de Fedora-, installation de [Btrfs Assistant](https://gitlab.com/btrfs-assistant/btrfs-assistant) pour aider à sa gestion
