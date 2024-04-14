@@ -26,7 +26,7 @@ Pour démarrer avec le script :
 - Support de [ROCm](https://fr.wikipedia.org/wiki/Compute_Unified_Device_Architecture) pour les cartes graphiques AMD pour les calculs haute performance et l'IA
 - Installation de firmwares propriétaires (b43, broadcom-bt, dvb, nouveau)
 - Installation des polices de Microsoft (Andale, Arial, Calibri, Cambria, Candara, Comic Sans MS, Consolas, Constantia, Corbel, Courier New, Georgia, Impact, Tahoma, Times New Roman, Trebuchet MS, Verdana, Webdings)
-- Installation d'outils et d'extension pour le [bureau GNOME](https://www.gnome.org/) :
+- Installation d'outils et d'extensions pour le [bureau GNOME](https://www.gnome.org/) :
   - GNOME Tweaks pour modifier GNOME,
   - GNOME Extension Application pour gérer les extensions de GNOME,
   - App Indicator pour le systray,
