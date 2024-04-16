@@ -181,7 +181,7 @@ if [[ $GPU_TYPE =~ "NVIDIA" ]]; then
 	exec_command "sudo dnf install -y akmod-nvidia" # rhel/centos users can use kmod-nvidia instead
 	exec_command "sudo dnf install -y xorg-x11-drv-nvidia-cuda" #optional for cuda/nvdec/nvenc support
 #FIXME:	exec_log "Version du pilote NVIDIA installé :" \
-	"modinfo -F version nvidia"
+#	"modinfo -F version nvidia"
 	exec_log "Installe Vulkan :" \
 	"sudo dnf install -y vulkan"
 	
