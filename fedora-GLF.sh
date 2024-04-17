@@ -279,6 +279,7 @@ EOF"
 		log_msg "File /etc/dconf/db/local.d/00-extensions already exists!"
 	fi
 	# enable extensions for the current user
+sleep 10
 	exec_command "gnome-extensions enable gsconnect@andyholmes.github.io"
 	exec_command "gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com"
 	exec_command "gnome-extensions enable gamemode@christian.kellner.me"
