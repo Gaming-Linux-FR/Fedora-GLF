@@ -11,7 +11,7 @@ Pour démarrer avec le script :
 2. Copier-coller ce qui suit dans un terminal :
 ```bash
   rm -rf ~/tmp-Fedora-GLF \
-  && git clone https://github.com/Gaming-Linux-FR/Fedora-GLF.git ~/tmp-Fedora-GLF \
+  && git clone https://github.com/Chevek/Fedora-GLF ~/tmp-Fedora-GLF \
   && mkdir -p ~/Fedora-GLF \
   && mv ~/tmp-Fedora-GLF/* ~/Fedora-GLF \
   && rm -rf ~/tmp-Fedora-GLF \
